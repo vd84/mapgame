@@ -1,0 +1,1 @@
+{"ast":null,"code":"import Home from '../src/components/home/home';\nexport default Home;","map":{"version":3,"sources":["/home/douglasham/kartspel/pages/index.tsx"],"names":["Home"],"mappings":"AAAA,OAAOA,IAAP,MAAiB,6BAAjB;AAEA,eAAeA,IAAf","sourcesContent":["import Home from '../src/components/home/home'\n\nexport default Home"]},"metadata":{},"sourceType":"module"}
