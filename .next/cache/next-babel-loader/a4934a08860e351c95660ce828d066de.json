@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { jsx as _jsx } from \"react/jsx-runtime\";\nimport React from 'react';\nimport Home from './home';\n\nvar HomeIndex = function HomeIndex() {\n  return /*#__PURE__*/_jsx(Home, {});\n};\n\nexport default HomeIndex;","map":null,"metadata":{},"sourceType":"module"}
