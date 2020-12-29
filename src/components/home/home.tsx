@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button } from '@material-ui/core';
+export { }
 
 
-const Home = () => {
+export const Home = () => {
     return (
         <>
             <h1>Home page</h1>

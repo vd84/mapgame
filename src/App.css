@@ -37,6 +37,29 @@
   }
 }
 
-h1 {
-    color: red
+.registerWrapper {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "header"
+      "main"
+      "footer";
+    justify-items: center;
+}
+.register-form {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+      "main";
+    justify-items: center;
+}
+
+.form-header {
+    grid-area: header;
+}
+.register-form {
+    grid-area: main;
+
 }

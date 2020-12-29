@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import TextInputIndex from '../../smallercomponents/textinput'
+import { Button, TextField } from '@material-ui/core';
+import React, { useState } from 'react'
+import axios from 'axios'
 
+const url = 'http://localhost:8010/user'
 
 const Register = () => {
     const [formData, setFormdata] = useState({
         username: "",
         password: "",
-        passwordCopy: ""
     })
     const [submitting, setSubmitting] = useState(false);
 
@@ -14,14 +15,7 @@ const Register = () => {
         event.preventDefault();
         setSubmitting(true);
 
-        console.log(formData)
-
-        setTimeout(() => {
-            setSubmitting(false);
-        }, 3000);
-
-
-
+        axios.post(url, formData).then(response => console.log(response))
 
     }
 
@@ -36,17 +30,16 @@ const Register = () => {
 
     return (
         <>
-            <h1>Register Page</h1>
-            {submitting &&
-                <h1>Submitting...</h1>}
-            <form onSubmit={handleSubmit}>
-                <TextInputIndex id="username" name="username" type="text" label="Enter a username" value={formData.username} onChange={handleChange} ></TextInputIndex>
-                <TextInputIndex id="password" name="password" type="password" label="Enter a password" value={formData.password} onChange={handleChange} ></TextInputIndex>
-                <TextInputIndex id="repassword" name="passwordCopy" type="password" label="Re-enter password" value={formData.passwordCopy} onChange={handleChange} ></TextInputIndex>
-                <button >Submit form</button>
-            </form>
-
-
+            <div className="registerWrapper">
+                <h1 className="form-header">Register Page</h1>
+                {submitting &&
+                    <h1>Submitting...</h1>}
+                <form className="register-form" onSubmit={handleSubmit}>
+                    <TextField id="username" variant="outlined" margin="normal" label="Username" name="username" type="text" value={formData.username} onChange={handleChange} ></TextField>
+                    <TextField id="password" variant="outlined" margin="normal" label="Password" name="password" type="password" value={formData.password} onChange={handleChange} ></TextField>
+                    <Button id="submit-register" variant="outlined" type="submit" >Submit form</Button>
+                </form>
+            </div>
         </>
     )
 }
