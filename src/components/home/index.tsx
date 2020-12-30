@@ -4,7 +4,9 @@ import Home from './home';
 
 const HomeIndex = () => {
     return (
-        <Home ></Home>
+        <>
+            <Home ></Home>
+        </>
     )
 }
 
