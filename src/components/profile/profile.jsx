@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Profile = ({ fetchUserInformation, username, categories }) => {
+const Profile = ({ username, categories }) => {
 
     return (
         <>
