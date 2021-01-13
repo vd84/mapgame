@@ -1,8 +1,6 @@
 import React from 'react';
 import { usePosition } from '../../services/geolocation'
 
-
-
 export const Home = () => {
 
     const watch = true;
@@ -23,9 +21,7 @@ export const Home = () => {
             <h1>Current location={timestamp}</h1>
             <h1>Current location={accuracy}</h1>
             <h1>Current location={error}</h1>
-
-
-
+            <h1>hewjkrw</h1>
         </>
     )
 }

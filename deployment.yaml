@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mapgame 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mapgame
+  template:
+    metadata:
+      labels:
+        app: mapgame
+    spec:
+      containers:
+      - name: mapgame
+        image: vd84/mapgame:latest
+        ports:
+        - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mapgame
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 3000
+  selector:
+    app: mapgame     

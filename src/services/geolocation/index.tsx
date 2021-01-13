@@ -6,8 +6,16 @@ const defaultSettings = {
     maximumAge: 0,
 };
 
+type Position = Readonly<{
+    latitude: string,
+    longitude: string,
+    accuracy: string,
+    speed: string,
+    timestamp: string
+  }>
+
 export const usePosition = (watch = false, settings = defaultSettings) => {
-    const [position, setPosition] = useState({});
+    const [position, setPosition] = useState<Position>();
     const [error, setError] = useState(null);
 
     const onChange = ({ coords, timestamp }) => {
@@ -16,7 +24,7 @@ export const usePosition = (watch = false, settings = defaultSettings) => {
             longitude: coords.longitude,
             accuracy: coords.accuracy,
             speed: coords.speed,
-            timestamp,
+            timestamp
         });
     };
 
