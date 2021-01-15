@@ -19,7 +19,7 @@ const Register = () => {
 
     }
 
-    const handleChange = (event: { target: { name: any; value: any; }; }) => {
+    const handleChange = (event: { target: { name: string; value: string; }; }) => {
         const value = event.target.value
         setFormdata({
             ...formData,
