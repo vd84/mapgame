@@ -1,14 +1,12 @@
 import React from 'react'
 
-const Profile = ({ username, categories }) => {
+const Profile = ({ username }) => {
 
     return (
         <>
+        <h1>uppdaterad"!""" IGEN</h1>
             <h1>Profile</h1>
             <h1>{username}</h1>
-            <ul>
-                {categories}
-            </ul>
         </>
     )
 }

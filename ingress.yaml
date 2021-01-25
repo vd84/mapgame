@@ -4,22 +4,27 @@ metadata:
   name: hello-world-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: letsencrypt
     nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    cert-manager.io/cluster-issuer: letsencrypt
 spec:
   tls:
   - hosts:
-    - kartspel.douglasham.com
+    - map.douglasham.com
     secretName: tls-secret
   rules:
-  - host: kartspel.douglasham.com
+  - host: map.douglasham.com
     http:
       paths:
       - backend:
-          serviceName: mapgame-service
+          serviceName: aks-helloworld-one
           servicePort: 80
-        path: /app(/|$)(.*)
+        path: /hello-world-one(/|$)(.*)
       - backend:
           serviceName: mapgameapi-service
+          servicePort: 443
+        path: /api(/|$)(.*)
+      - backend:
+          serviceName: mapgame-service
           servicePort: 80
-        path: /backend(/|$)(.*)
+        path: /()(.*)

@@ -14,9 +14,14 @@ spec:
     spec:
       containers:
       - name: mapgame
-        image: vd84/mapgame:latest
+        image: vd84/mapgame:2.9
         ports:
         - containerPort: 3000
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m
 ---
 apiVersion: v1
 kind: Service
