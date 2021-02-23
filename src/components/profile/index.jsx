@@ -1,33 +1,26 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import getConfig from "next/config";
-const { publicRuntimeConfig } = getConfig();
-
-console.log(publicRuntimeConfig.restAPIKey)
-
-
-const url = '/api/test'
-
-
-console.log("hejh " + process.env.REACT_APP_APIKEY)
-
+const url = 'http://kubernetes.docker.internal/api/user/'
 
 const ProfileIndex = () => {
-    const [test, setTest] = useState('')
+    const [username, setUsername] = useState('')
+
+
+    useEffect(() => {
+        fetchUserInformation()
+    })
+
+
 
     const fetchUserInformation = () => {
-        console.log('fetching from ' + url)
-        axios.get(url).then(response => {
-            setTest(response.data)
+        axios.get(url+1).then(response => {
+            setUsername(response.data['username'])
         })
     }
     return (
         <>
-        <button onClick={fetchUserInformation}>ladda backend uppdaterad</button>
-        <h1>{'testdata' + test}</h1>
-        <h1>{'env:' +  process.env.REACT_APP_API_ENDPOINT}</h1>
-        <h1>{'env:' +  process.env.NODE_ENV}</h1>
-        <h1>URL {url}</h1>
+            <h1>Welcome {username}</h1>
+            <h2>This is you profile page, have a look!</h2>
         </>
     )
 }

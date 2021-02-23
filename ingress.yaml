@@ -10,21 +10,21 @@ metadata:
 spec:
   tls:
   - hosts:
-    - map.douglasham.com
+    - kubernetes.docker.internal/
     secretName: tls-secret
   rules:
-  - host: map.douglasham.com
-    http:
-      paths:
-      - backend:
-          serviceName: aks-helloworld-one
-          servicePort: 80
-        path: /hello-world-one(/|$)(.*)
-      - backend:
-          serviceName: mapgameapi-service
-          servicePort: 443
-        path: /api(/|$)(.*)
-      - backend:
-          serviceName: mapgame-service
-          servicePort: 80
-        path: /()(.*)
+  #- host: map.douglasham.com
+    - http:
+        paths:
+        - backend:
+            serviceName: aks-helloworld-one
+            servicePort: 80
+          path: /hello-world-one(/|$)(.*)
+        - backend:
+            serviceName: mapgameapi-service
+            servicePort: 443
+          path: /api(/|$)(.*)
+        - backend:
+            serviceName: mapgame-service
+            servicePort: 80
+          path: /()(.*)

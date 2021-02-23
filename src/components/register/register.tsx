@@ -2,7 +2,7 @@ import { Button, TextField } from '@material-ui/core';
 import React, { useState } from 'react'
 import axios from 'axios'
 
-const url = 'http://localhost:8010/user'
+const url = 'mapgameapi-service.default.svc.cluster.local/user'
 
 const Register = () => {
     const [formData, setFormdata] = useState({

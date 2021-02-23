@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: mapgame
-        image: vd84/mapgame:2.9
+        image: vd84/mapgame:5.0
         ports:
         - containerPort: 3000
         resources:

@@ -3,8 +3,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 
-
-const url = 'http://localhost:8010/auth'
+const url = 'mapgameapi-service.default.svc.cluster.local/api/auth'
 
 const Login = () => {
     const router = useRouter()
@@ -15,18 +14,20 @@ const Login = () => {
     const [submitting, setSubmitting] = useState(false);
 
     const routeToHome = () => {
-        router.push('/home')
+        router.push('/profile')
     }
 
     const handleSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
         setSubmitting(true);
 
-        axios.post(url, formData).then(response => routeToHome()).catch(error => {
+        axios.post(url, formData).then(response => {
+            localStorage.setItem('userid', response.data)
+            routeToHome()
+            }).catch(error => {
+            
             alert(error)
         })
-
-
     }
 
     const handleChange = (event: { target: { name: string; value: string; }; }) => {
@@ -35,7 +36,6 @@ const Login = () => {
             ...formData,
             [event.target.name]: value
         })
-
     }
 
     return (
@@ -47,6 +47,7 @@ const Login = () => {
                 <form className="register-form" onSubmit={handleSubmit}>
                     <TextField id="username" variant="outlined" margin="normal" label="Username" name="username" type="text" value={formData.username} onChange={handleChange} ></TextField>
                     <TextField id="password" variant="outlined" margin="normal" label="Password" name="password" type="password" value={formData.password} onChange={handleChange} ></TextField>
+                    
                     <Button id="submit-register" variant="outlined" type="submit" >Login</Button>
                     <h1>Testar att uppdatera</h1>
                 </form>
