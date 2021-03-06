@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import Siderbar from '../../smallercomponents/header/header';
+import Profile from './profile'
+
 const url = 'http://kubernetes.docker.internal/api/user/'
 
 const ProfileIndex = () => {
     const [username, setUsername] = useState('')
+
+    const pressedPlayButton = () => {
+
+    }
 
 
     useEffect(() => {
@@ -12,15 +19,19 @@ const ProfileIndex = () => {
 
 
 
+
+
     const fetchUserInformation = () => {
-        axios.get(url+1).then(response => {
-            setUsername(response.data['username'])
-        })
+
+        setUsername('Douglas')
+        // axios.get(url+1).then(response => {
+        //     setUsername(response.data['username'])
+        // })
     }
     return (
         <>
-            <h1>Welcome {username}</h1>
-            <h2>This is you profile page, have a look!</h2>
+            <Siderbar />
+            <Profile username={username} />
         </>
     )
 }

@@ -1,15 +1,14 @@
 import React from 'react';
-import Home from './home';
+import Game from './game';
 import Siderbar from '../../smallercomponents/header/header';
 
-
-const HomeIndex = () => {
+const GameIndex = () => {
     return (
-        <>
+        <>  
             <Siderbar/>
-            <Home ></Home>
+            <Game ></Game>
         </>
     )
 }
 
-export default HomeIndex;
+export default GameIndex;

@@ -21,13 +21,17 @@ const Login = () => {
         event.preventDefault();
         setSubmitting(true);
 
-        axios.post(url, formData).then(response => {
-            localStorage.setItem('userid', response.data)
-            routeToHome()
-            }).catch(error => {
+        routeToHome()
+
+        setSubmitting(false);
+
+        // axios.post(url, formData).then(response => {
+        //     localStorage.setItem('userid', response.data)
+        //     routeToHome()
+        //     }).catch(error => {
             
-            alert(error)
-        })
+        //     alert(error)
+        // })
     }
 
     const handleChange = (event: { target: { name: string; value: string; }; }) => {

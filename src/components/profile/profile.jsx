@@ -1,11 +1,19 @@
+import { Button } from '@material-ui/core'
 import React from 'react'
+import Dropdown from '../../smallercomponents/dropdown/dropdown'
+import Link from 'next/link'
 
 const Profile = ({ username }) => {
 
+    const play = () => {
+
+    }
+
     return (
         <>
-            <h1>Profile</h1>
-            <h1>{username}</h1>
+            <h1>Welcome {username}, please choose categories</h1>
+            <Dropdown />
+            <Button>Play</Button>
         </>
     )
 }
